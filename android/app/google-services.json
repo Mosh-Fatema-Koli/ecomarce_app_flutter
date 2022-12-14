@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1038045430632",
+    "firebase_url": "https://ecomarceflutter-default-rtdb.firebaseio.com",
+    "project_id": "ecomarceflutter",
+    "storage_bucket": "ecomarceflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038045430632:android:3886a3adbed4308fdf4cdd",
+        "android_client_info": {
+          "package_name": "com.example.ecomarce_app_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038045430632-e7g40231cb89dghi155u9eomjluad08u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9HkzYfQdCBNNMgYWSV9zNgs3I4JbC2MU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038045430632-e7g40231cb89dghi155u9eomjluad08u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
