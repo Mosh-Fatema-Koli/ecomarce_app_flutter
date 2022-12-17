@@ -1,6 +1,6 @@
 
-import 'package:ecomarce_app_flutter/all%20Screen/auth.dart';
-import 'package:ecomarce_app_flutter/all%20Screen/login.dart';
+import 'package:ecomarce_app_flutter/all%20Screen/Auth/auth.dart';
+import 'package:ecomarce_app_flutter/all%20Screen/Auth/login.dart';
 import 'package:ecomarce_app_flutter/widget/customtextfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';

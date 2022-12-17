@@ -1,5 +1,8 @@
 
 import 'package:banner_carousel/banner_carousel.dart';
+import 'package:ecomarce_app_flutter/all%20Screen/Home/catagories.dart';
+import 'package:ecomarce_app_flutter/all%20Screen/Home/newarrivel.dart';
+import 'package:ecomarce_app_flutter/all%20Screen/Home/popular.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: Column(
+      body: ListView(
        
         children: <Widget>[
      
@@ -27,6 +30,50 @@ class HomeScreen extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
+
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: TextField(
+              maxLines: 1,
+              minLines: 1,
+
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                enabledBorder: OutlineInputBorder(
+                  borderSide:
+                  BorderSide(width: 3, color: Colors.blueAccent), //<-- SEE HERE
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
+                hintText: "Search",
+                suffixIcon: IconButton(onPressed: (){},icon: Icon(Icons.search),)
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: Container(
+              height: 150,
+              color: Colors.lightBlue,
+
+            ),
+          ),
+          Text("Catagories",style: TextStyle(fontSize: 25),),
+
+
+          Container(
+              height: 150,
+              child: CatagoriesScreen()),
+
+          Text("Popular",style: TextStyle(fontSize: 25),),
+          Container(
+              height: 250,
+              child: PopularScreen()),
+
+          Text("New Arrivel",style: TextStyle(fontSize: 25),),
+          Container(
+            height: 500,
+            child: NewArrivelScreen(),
+          )
 
 
         ],

@@ -1,7 +1,8 @@
 
-import 'package:ecomarce_app_flutter/all%20Screen/auth.dart';
-import 'package:ecomarce_app_flutter/all%20Screen/home.dart';
-import 'package:ecomarce_app_flutter/all%20Screen/login.dart';
+import 'package:ecomarce_app_flutter/all%20Screen/Auth/auth.dart';
+import 'package:ecomarce_app_flutter/all%20Screen/Home/home.dart';
+import 'package:ecomarce_app_flutter/all%20Screen/Auth/login.dart';
+import 'package:ecomarce_app_flutter/all%20Screen/nav.dart';
 import 'package:flutter/material.dart';
 
 class WidgetTree extends StatefulWidget {
@@ -18,7 +19,7 @@ class _WidgetTreeState extends State<WidgetTree> {
       stream: Auth().authStateChanges,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return HomeScreen();
+          return NavScreen();
         } else {
           return const LoginScreen();
         }
