@@ -7,24 +7,29 @@ class Catagories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GridView.builder(
-      physics: AlwaysScrollableScrollPhysics(),
-      itemCount: 20,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 2.0,
-          mainAxisSpacing: 1.0
-      ),
-      itemBuilder: (BuildContext context, int index){
-        return Padding(
-          padding: const EdgeInsets.all(10),
-          child: Container(
-            height: 100,
-            color: Colors.amber,
-          ),
-        );
-      },
-    );
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: <Widget>[
+          StreamBuilder(builder: (context, snapshot) {
+            return SliverGrid(
 
+              delegate: SliverChildBuilderDelegate(
+
+                    (context, index) {
+                  return Card(
+                    color: Colors.green[100 * (index % 9 + 1)],
+                    child: ListTile(title: Text("shohel$index"),),
+                  );
+                },
+                childCount: 16,
+              ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, childAspectRatio: 2
+              ),
+            );
+          },)
+        ],
+      ),
+    );
   }
 }

@@ -39,6 +39,11 @@ class HomeScreen extends StatelessWidget {
 
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                focusedBorder:  OutlineInputBorder(
+                  borderSide:
+                  BorderSide(width: 3, color: Colors.blueAccent), //<-- SEE HERE
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
                 enabledBorder: OutlineInputBorder(
                   borderSide:
                   BorderSide(width: 3, color: Colors.blueAccent), //<-- SEE HERE
@@ -54,27 +59,60 @@ class HomeScreen extends StatelessWidget {
             child: Container(
               height: 150,
               color: Colors.lightBlue,
+              child: Image.asset("images/discountBaner.jpg",fit: BoxFit.cover,),
 
             ),
           ),
-          Text("Catagories",style: TextStyle(fontSize: 25),),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text("Catagories",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+          ),
 
 
           Container(
               height: 150,
               child: CatagoriesScreen()),
 
-          Text("Popular",style: TextStyle(fontSize: 25),),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text("Popular Items",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+          ),
           Container(
               height: 250,
               child: PopularScreen()),
 
-          Text("New Arrivel",style: TextStyle(fontSize: 25),),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text("Flash Sales",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+          ),
           Container(
-            height: 500,
-            child: NewArrivelScreen(),
+            height: 250,
+            child: PopularScreen(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text("Fresh Vegetables",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+          ),
+          Container(
+              height: 250,
+              child: PopularScreen()),
+              Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text("Fresh Fruits",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+          ),
+          Container(
+              height: 250,
+              child: PopularScreen()),
+              Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text("Offers",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+          ),
+          Container(
+              height: 250,
+              child: PopularScreen()),
+          SizedBox(
+            height: 10,
           )
-
 
         ],
       ),

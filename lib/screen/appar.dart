@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 setAppBar() {
   // ignore: unnecessary_new
   return new  AppBar(
-    backgroundColor: Colors.red,
+    backgroundColor: Color.fromARGB(255, 8, 189, 180),
     elevation: 0,
     actions: [
       Row(

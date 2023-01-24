@@ -1,4 +1,4 @@
-import 'package:ecomarce_app_flutter/all%20Screen/Auth/login.dart';
+
 import 'package:ecomarce_app_flutter/all%20Screen/mainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

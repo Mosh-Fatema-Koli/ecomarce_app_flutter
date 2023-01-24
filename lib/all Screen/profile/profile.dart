@@ -1,9 +1,16 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
+
+
+ signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +114,9 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   SizedBox(width: 10,),
 
-                  MaterialButton(onPressed: (){},
+                  MaterialButton(onPressed: (){
+                    signOut();
+                  },
                   child: Text("Logout"),
                   color: Colors.red,
                   

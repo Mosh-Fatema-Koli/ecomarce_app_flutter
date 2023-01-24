@@ -1,5 +1,6 @@
 import 'package:ecomarce_app_flutter/all%20Screen/Catagories/catagories.dart';
 import 'package:ecomarce_app_flutter/all%20Screen/Home/home.dart';
+import 'package:ecomarce_app_flutter/all%20Screen/Product/product.dart';
 import 'package:ecomarce_app_flutter/all%20Screen/profile/profile.dart';
 import 'package:ecomarce_app_flutter/screen/appar.dart';
 import 'package:ecomarce_app_flutter/screen/drawerService.dart';
@@ -19,6 +20,7 @@ class _NavScreenState extends State<NavScreen> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     Catagories(),
+    ProductPage(),
     ProfileScreen(),
   ];
 
@@ -49,6 +51,10 @@ class _NavScreenState extends State<NavScreen> {
             label: 'Catagories',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.preview_outlined),
+            label: 'Product',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
           ),
@@ -56,8 +62,11 @@ class _NavScreenState extends State<NavScreen> {
 
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color.fromARGB(255, 8, 189, 180),
         onTap: _onItemTapped,
+        unselectedItemColor: Colors.grey,
+        unselectedLabelStyle: TextStyle(color: Colors.grey),
+        showUnselectedLabels: true,
       ),
     );
   }

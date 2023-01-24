@@ -1,6 +1,5 @@
 
 import 'package:ecomarce_app_flutter/all%20Screen/Auth/auth.dart';
-import 'package:ecomarce_app_flutter/all%20Screen/Home/home.dart';
 import 'package:ecomarce_app_flutter/all%20Screen/Auth/login.dart';
 import 'package:ecomarce_app_flutter/all%20Screen/nav.dart';
 import 'package:flutter/material.dart';

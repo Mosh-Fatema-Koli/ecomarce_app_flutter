@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class CatagoriesScreen extends StatelessWidget {
@@ -6,31 +7,50 @@ class CatagoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: ListView.builder(
+      child: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection("catagories").snapshots(),
+        builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+
+          if (snapshot.hasData) {
+
+            return ListView.builder(
         physics: AlwaysScrollableScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount: 6,
+        itemCount: snapshot.data!.docs.length,
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(5),
           child: Container(
             child:   Column(
               children: [
                 Container(
-                  height: 100,
-                  width: 100,
+                  height: 80,
+                  width: 80,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(50),
+                    
+                   
 
                   ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: Image.network(snapshot.data!.docs[index]['image'],fit: BoxFit.cover,)),
 
                 ),
-                Text("Daily"),
+                SizedBox(height: 5,),
+                Text(snapshot.data!.docs[index]['name'],style:TextStyle(fontSize: 12,fontWeight: FontWeight.bold),),
               ],
             ),
           ),
         ),
-      ),
-    ) ;
+      );
+            
+          }
+          else{ 
+            
+            return Container();
+            
+            }
+        
+      },) ) ;
   }
 }

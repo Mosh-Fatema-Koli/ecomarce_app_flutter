@@ -5,6 +5,7 @@ import 'package:ecomarce_app_flutter/widget/customtextfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 class RegScreen extends StatefulWidget {
@@ -24,7 +25,7 @@ class _RegScreenState extends State<RegScreen> {
   TextEditingController passwordcontroller= TextEditingController();
  
 
-signup() async {
+/*signup() async {
   try {
   final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
     email: emailcontroller.text,
@@ -39,14 +40,43 @@ signup() async {
 } catch (e) {
   print(e);
 }
-}
+}*/
+
+
+  signUp()async{
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailcontroller.text,
+    password: passwordcontroller.text,
+      );
+      var authCredential = userCredential.user;
+      print(authCredential!.uid);
+      if(authCredential.uid.isNotEmpty){
+        Navigator.push(context, CupertinoPageRoute(builder: (_)=>LoginScreen()));
+      }
+      else{
+        Fluttertoast.showToast(msg: "Something is wrong");
+      }
+
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        Fluttertoast.showToast(msg: "The password provided is too weak.");
+
+      } else if (e.code == 'email-already-in-use') {
+        Fluttertoast.showToast(msg: "The account already exists for that email.");
+
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.yellow,
+      backgroundColor: Color.fromARGB(255, 206, 3, 162),
 
       body: Center(
         child: Container(
@@ -56,7 +86,7 @@ signup() async {
             right: 20,
           ),
           decoration: BoxDecoration(
-              color: Colors.yellow, borderRadius: BorderRadius.circular(20)),
+               borderRadius: BorderRadius.circular(20)),
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -87,7 +117,7 @@ signup() async {
                   width: 300,
                   child: MaterialButton(
                     onPressed: () {
-                        signup();          
+                        signUp();          
                     },
                     color: Colors.red,
                     child: Text("Submit"),

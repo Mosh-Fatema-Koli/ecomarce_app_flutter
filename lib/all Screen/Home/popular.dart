@@ -20,12 +20,41 @@ class PopularScreen extends StatelessWidget {
                   width: 150,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Colors.red,
 
+
+                  ),
+                  child: Card(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Container(
+                            height: 100,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Text("Potato"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Row(
+                            children: [
+                              Text("Price: 500 |"),
+                              Text("KG"),
+
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
 
                 ),
-                Text("Daily"),
+
               ],
             ),
           ),
